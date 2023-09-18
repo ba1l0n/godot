@@ -2857,3 +2857,13 @@ bool OpenXRAPI::set_environment_blend_mode(XrEnvironmentBlendMode mode) {
 	}
 	return false;
 }
+
+// Custom
+String OpenXRAPI::get_system_name() {
+	return system_name;
+}
+
+
+uint32_t OpenXRAPI::get_vendor_id() {
+	return vendor_id;
+}

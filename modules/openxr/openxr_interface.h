@@ -163,6 +163,10 @@ public:
 
 	OpenXRInterface();
 	~OpenXRInterface();
+
+	// Custom
+	String get_system_name();
+	uint32_t get_vendor_id();
 };
 
 #endif // OPENXR_INTERFACE_H

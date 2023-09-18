@@ -57,7 +57,29 @@ void OpenXRInterface::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_action_sets"), &OpenXRInterface::get_action_sets);
 
 	ClassDB::bind_method(D_METHOD("get_available_display_refresh_rates"), &OpenXRInterface::get_available_display_refresh_rates);
+
+	// Custom
+	ClassDB::bind_method(D_METHOD("get_system_name"), &OpenXRInterface::get_system_name);
+	ClassDB::bind_method(D_METHOD("get_vendor_id"), &OpenXRInterface::get_vendor_id);	
 }
+
+// Custom
+String OpenXRInterface::get_system_name() {
+	if (openxr_api == nullptr) {
+		return String("");
+	} else {
+		return openxr_api->get_system_name();
+	}
+}
+
+uint32_t OpenXRInterface::get_vendor_id() {
+	if (openxr_api == nullptr) {
+		return 0;
+	} else {
+		return openxr_api->get_vendor_id();
+	}
+}
+// -----------------------
 
 StringName OpenXRInterface::get_name() const {
 	return StringName("OpenXR");
